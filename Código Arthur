@@ -1,0 +1,23 @@
+import random
+
+#Criar matriz e colocar as bombas
+
+A = [None]*5 # cria(aloca)5 linhas vazias
+for i in range(5):
+    A[i] = [0] * 5
+
+for i in range(5):
+    for j in range(5):
+        print(A[i][j],end="\t")
+    print("\n")
+
+bombas = [[random.randint(0, 5) for x in range(2)] for x in range(5)]
+for i in range(len(bombas)):
+    v = 0
+    for j in range(len(bombas)):
+        if bombas[i][0] == bombas[j][0] and bombas[i][1] == bombas[j][1]:
+            v += 1
+        if v == 2:
+            bombas = [[random.randint(0, 5) for x in range(2)] for x in range(5)]
+
+#juntar matriz e bombas
